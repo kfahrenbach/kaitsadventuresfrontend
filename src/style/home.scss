@@ -1,0 +1,30 @@
+.home {
+    font-size: 2em;
+}
+
+.visited-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+
+    .nested-list {
+        padding-left: 25px;
+    }
+}
+
+.fa-check {
+    color: rgb(59, 219, 59);
+    padding-right: 5px;
+}
+
+.bucketlist-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    img {
+        width: 340px;
+        height: 200px;
+        border-radius: 50%;
+        opacity: .8;
+    }
+}
