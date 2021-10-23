@@ -9,6 +9,17 @@
         display: grid;
         column-gap: 30px;
         grid-template-columns: 1fr 1fr 1fr;
+
+        @media screen and (max-width: 680px) {
+            grid-template-columns: 1fr;
+        }
+
+        @media screen and (max-width: 1000) {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        
+        
     }
     .image-container {
         display: flex;

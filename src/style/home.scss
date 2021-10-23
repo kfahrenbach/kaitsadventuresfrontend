@@ -1,5 +1,11 @@
 .home {
     font-size: 2em;
+    margin-left: 30px;
+    margin-right: 30px;
+
+    @media screen and (max-width: 680px) {
+        font-size: 1.4em;
+    }
 }
 
 .visited-list {
@@ -7,24 +13,31 @@
     grid-template-columns: 1fr 1fr 1fr;
     justify-items: center;
 
-    .nested-list {
-        padding-left: 25px;
+    .list {
+        padding-left: 50px;
     }
 }
 
 .fa-check {
     color: rgb(59, 219, 59);
-    padding-right: 5px;
+    padding-right: 8px;
 }
 
 .bucketlist-wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
 
+    @media screen and (max-width: 680px) {
+        grid-template-columns: 1fr;
+    }
     img {
         width: 340px;
         height: 200px;
         border-radius: 50%;
         opacity: .8;
+
+        @media screen and (max-width: 680px) {
+            justify-self: center;
+        }
     }
 }

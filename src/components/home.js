@@ -26,24 +26,26 @@ export default class Home extends Component {
         <div className="bucketlist-wrapper">
         <div className="bucketlist">
           Top destinations on my Bucket List:
-          <ul><li>
-            Machu Picchu, Peru
-          </li>
-          <li>
-            Iceland
-          </li>
-          <li>
-            Havasu Falls, Arizona
-          </li>
-          <li>
-            Switzerland
-          </li>
-          <li>
-            Great Barrier Reef, Australia
-          </li>
-          <li>
-            Hawaii
-          </li></ul>
+          <div className="list">
+            <ul><li>
+              Machu Picchu, Peru
+            </li>
+            <li>
+              Iceland
+            </li>
+            <li>
+              Havasu Falls, Arizona
+            </li>
+            <li>
+              Switzerland
+            </li>
+            <li>
+              Great Barrier Reef, Australia
+            </li>
+            <li>
+              Hawaii
+            </li></ul>
+          </div>
         </div>
         <img src={globe} />
         </div>
