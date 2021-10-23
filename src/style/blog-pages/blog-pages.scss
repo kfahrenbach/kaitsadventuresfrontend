@@ -10,10 +10,19 @@
         grid-template-columns: 1fr 1fr;
         padding-bottom: 20px;
         column-gap: 15px;
+
+        @media screen and (max-width: 680px) {
+            grid-template-columns: 1fr;
+            column-gap: 0px;
+            padding-bottom: 0px;
+        }
     }
 
     .three {
         grid-template-columns: 1fr 1fr 1fr;
+        @media screen and (max-width: 680px) {
+            grid-template-columns: 1fr;
+        }
     }
     
     .one {
