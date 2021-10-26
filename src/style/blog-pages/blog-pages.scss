@@ -28,4 +28,21 @@
     .one {
         grid-template-columns: 1fr;
     }
+
+    .title {
+        font-size: 2em;
+    }
+    .comments-container a {
+        padding: 4px;
+        font-size: 1.1em;
+        text-decoration: none;
+        color: rgb(247, 248, 183);
+
+        &:hover {
+            color: rgb(247, 248, 100);
+        }
+    }
+    .comment {
+        padding: 15px;
+    }
 }

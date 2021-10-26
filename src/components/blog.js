@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import moraine from "../../static/assets/images/moraine.jpg";
 import oceanCity from '../../static/assets/images/ocmd3.jpg';
 import cliffsOfMoher from '../../static/assets/images/cliffs_of_moher.jpg';
@@ -13,32 +12,6 @@ import { NavLink } from 'react-router-dom';
  
 
 export default class Blog extends Component {
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     blogItems: {}
-  //   };
-  // }
-
-  // getImages() {  
-  //   axios.get('http://localhost:5000/places'
-  //     ).then(response => {
-  //       console.log(response, "places");
-  //       // response.data.0.content/title
-  //       this.setState({
-  //         blogItems: response.data
-  //       })
-  //         // this.setState({
-  //         //     blogItem: response.data.portfolio_blog
-  //         // })
-  //     }).catch(error => {
-  //         console.log("getBlogItem error", error)
-  //   })
-  // }
-  // componentDidMount() {
-  //   this.getImages();
-  // }
-
   render() {
     return (
       <div className="blog">

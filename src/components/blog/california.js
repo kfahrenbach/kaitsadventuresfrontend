@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
+import axios from 'axios';
+
 import beach from '../../../static/assets/images/redwoods/CaliforniaCoast.jpg';
 import bigTree from '../../../static/assets/images/redwoods/redwoods_big_tree.jpg';
 import fell from '../../../static/assets/images/redwoods/redwoods_fell.jpg';
@@ -7,6 +10,43 @@ import tall from '../../../static/assets/images/redwoods/redwoods_tall.jpg';
 import redwoods from '../../../static/assets/images/redwoods/redwoods.jpg';
 
 export default class California extends Component {
+    constructor() {
+    super();
+    this.state = {
+      comments: []
+    };
+  }
+
+  getComments() {  
+    axios.get('http://localhost:5000/comments'
+      ).then(response => {
+        this.setState({
+          comments: response.data
+        })
+      }).catch(error => {
+          console.log("getComment error", error)
+    })
+  }
+
+  renderComments() {
+    let commentsFromAPI = <div></div>;
+    if (typeof this.state.comments==='undefined') {
+      console.log('undefined');
+      return commentsFromAPI;
+    }
+    else {
+    commentsFromAPI = this.state.comments.map(comment=> (
+      <div className="comment">
+        <div> {comment.content} -{comment.name} </div>
+      </div>
+    ))
+    }
+    return commentsFromAPI
+  }
+  componentDidMount() {
+    this.getComments();
+  }
+
   render() {
     return (
       <div className="blog-post">
@@ -45,6 +85,19 @@ export default class California extends Component {
           <div className="right">
             <img src={drivethru} />
           </div>
+        </div>
+        <div className="page-content one comments">
+          <div className="title">
+            Comments:
+          </div>
+          <div className="comments-container">
+          Please click                 
+          <NavLink to="/contact" className="contact">
+                   here
+          </NavLink>and send me a message if you would like to be featured in the comments section!
+          <br></br>
+          </div>
+          {this.renderComments()}
         </div>
       </div>
     );
