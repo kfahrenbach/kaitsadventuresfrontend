@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import axios from 'axios';
 
 import beach from '../../../static/assets/images/redwoods/CaliforniaCoast.jpg';
 import bigTree from '../../../static/assets/images/redwoods/redwoods_big_tree.jpg';
@@ -18,11 +17,13 @@ export default class California extends Component {
   }
 
   getComments() {  
-    axios.get('http://localhost:5000/comments'
-      ).then(response => {
+    fetch('https://kaits-adventures-comments-api.herokuapp.com/comments')
+    .then(response => response.json())
+      .then(data => {
         this.setState({
-          comments: response.data
+          comments: data
         })
+        console.log(this.state.comments);
       }).catch(error => {
           console.log("getComment error", error)
     })
@@ -91,6 +92,7 @@ export default class California extends Component {
             Comments:
           </div>
           <div className="comments-container">
+          Comment box coming soon!
           Please click                 
           <NavLink to="/contact" className="contact">
                    here
