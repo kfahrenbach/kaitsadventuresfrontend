@@ -45,4 +45,57 @@
     .comment {
         padding: 15px;
     }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+        font-family: 'Be Vietnam Pro', sans-serif;
+
+        .comment {
+            text-align: start;
+            width: 425px;
+            height: 100px;
+            padding: 5px;
+            font-size: 1.6rem;
+            padding-left: 8px;
+            outline: none;
+            font-family: 'Be Vietnam Pro', sans-serif;
+
+        }
+        .text {
+            width: 425px;
+            height: 40px;
+            font-size: 1.6rem;
+            padding-left: 8px;
+            outline: none;
+            padding: 5px;
+        }
+
+        input {
+            font-family: 'Be Vietnam Pro', sans-serif;
+        }
+
+        button {
+            cursor: pointer;
+            height: 32px;
+            width: 90px;
+            border-radius: 2;
+            font-size: 1em;
+            font-weight: 500;
+            border: 1px solid transparent;
+            transition: all 0.5s ease-in-out;
+            background-color: #484a4d;
+            color: #e8e8e8;
+
+            &:active, &:focus {
+                outline: none;
+            }
+
+            &:hover {
+                background-color: gray;
+            }
+        }
+    }
 }

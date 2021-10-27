@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
 
 import beach from '../../../static/assets/images/redwoods/CaliforniaCoast.jpg';
 import bigTree from '../../../static/assets/images/redwoods/redwoods_big_tree.jpg';
@@ -12,8 +11,34 @@ export default class California extends Component {
     constructor() {
     super();
     this.state = {
-      comments: []
+      comments: [],
+      nameInput: "",
+      emailInput: "",
+      contentInput: ""
     };
+
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
+  }
+
+  handleChange(event) {
+    this.setState({
+      [event.target.name]: event.target.value
+    })
+  }
+
+  handleSubmit(event) {
+    fetch('https://kaits-adventures-comments-api.herokuapp.com/comment', {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({
+        name: this.state.nameInput,
+        email: this.state.emailInput,
+        content: this.state.contentInput
+      })
+    }).catch(error => {
+      console.log("error", error)
+    })
   }
 
   getComments() {  
@@ -32,12 +57,12 @@ export default class California extends Component {
   renderComments() {
     let commentsFromAPI = <div></div>;
     if (typeof this.state.comments==='undefined') {
-      console.log('undefined');
+      console.log('no comments');
       return commentsFromAPI;
     }
     else {
     commentsFromAPI = this.state.comments.map(comment=> (
-      <div className="comment">
+      <div key={Math.random} className="comment">
         <div> {comment.content} -{comment.name} </div>
       </div>
     ))
@@ -92,12 +117,12 @@ export default class California extends Component {
             Comments:
           </div>
           <div className="comments-container">
-          Comment box coming soon!
-          Please click                 
-          <NavLink to="/contact" className="contact">
-                   here
-          </NavLink>and send me a message if you would like to be featured in the comments section!
-          <br></br>
+          <form onSubmit={this.handleSubmit}>
+          <input className="text" type="text" placeholder="Name" name="nameInput" value={this.state.nameInput} onChange={this.handleChange} />
+          <input className="text" type="email" placeholder="Email" name="emailInput" value={this.state.emailInput} onChange={this.handleChange} />
+          <textarea className="comment" placeholder="Comment" name="contentInput" value={this.state.contentInput} onChange={this.handleChange} />
+          <button type="submit"> Post </button>
+          </form>
           </div>
           {this.renderComments()}
         </div>
